@@ -1,0 +1,9 @@
+Smart-Home-System
+Smart light:
+  User turn on or off 
+  If choice on, light illuminate
+  if choice off, light stay off
+  display status
+Smart thermostat:
+  choose tempature
+  display status 
