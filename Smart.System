@@ -1,0 +1,71 @@
+class SmartLight:
+    def __init__(self, room):
+        self.room = room
+        self.is_on = False
+        self.power = 10
+
+    def turn_on(self):
+        self.is_on = True
+        print("Light is on.")
+
+    def turn_off(self):
+        self.is_on = False
+        print("Light is off.")
+
+    def display_status(self):
+        print(self.room, "Light:", self.is_on)
+
+
+class Thermostat:
+    def __init__(self, room):
+        self.room = room
+        self.temperature = 22
+
+    def set_temperature(self, new_temp):
+        if 10 <= new_temp <= 30:
+            self.temperature = new_temp
+            print("Temperature changed.")
+        else:
+            print("Choose a temperature between 10 and 30.")
+
+    def display_status(self):
+        print(self.room, "Temperature:", self.temperature)
+
+
+# Create the smart home devices
+light = SmartLight("Kitchen")
+thermostat = Thermostat("Living Room")
+
+running = True
+
+# Main menu
+while running:
+    print("\nSMART HOME MENU")
+    print("1. Turn light on")
+    print("2. Turn light off")
+    print("3. Change temperature")
+    print("4. View status")
+    print("5. Exit")
+
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        light.turn_on()
+
+    elif choice == "2":
+        light.turn_off()
+
+    elif choice == "3":
+        try:
+            temp = int(input("Enter temperature (10-30): "))
+            thermostat.set_temperature(temp)
+        except ValueError:
+            print("Please enter a whole number.")
+
+    elif choice == "4":
+        light.display_status()
+        thermostat.display_status()
+
+    elif choice == "5":
+        running = False
+        print("Smart home system shutting down.")
